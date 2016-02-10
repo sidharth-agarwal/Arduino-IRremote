@@ -133,7 +133,13 @@ void  IRrecv::enableIRIn ( )
 	// Set pin modes
 	pinMode(irparams.recvpin, INPUT);
 }
-
+///////////////////////////////////////////////////
+//Function added to disable IRrecv and free timer//
+///////////////////////////////////////////////////
+void IRrecv::disableIRIn() {
+    TIMER_DISABLE_INTR;
+    TIMER_RESET;
+}
 //+=============================================================================
 // Enable/disable blinking of pin 13 on IR processing
 //
